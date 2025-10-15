@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel - Ticket Booking Requests</title>
+
+  <!-- ✅ Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #f5f7fa;
+      font-family: "Poppins", sans-serif;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      background-color: #0d6efd;
+    }
+
+    .navbar-brand, .nav-link {
+      color: white !important;
+      font-weight: 500;
+    }
+
+    .nav-link.active {
+      background-color: rgba(255, 255, 255, 0.25);
+      border-radius: 5px;
+    }
+
+    .content {
+      margin-top: 80px;
+    }
+
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .table th {
+      background-color: #0d6efd;
+      color: white;
+    }
+
+    footer {
+      background-color: #0d6efd;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">🚆 Admin Dashboard</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="manage-trains.html">Manage Trains</a></li>
+          <li class="nav-item"><a class="nav-link" href="manage-users.html">Manage Users</a></li>
+          <li class="nav-item"><a class="nav-link" href="reports.html">Reports</a></li>
+          <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+          <li class="nav-item"><a class="nav-link" href="train-schedules.html">Schedules</a></li>
+          <li class="nav-item"><a class="nav-link active" href="booking-requests.html">Booking Requests</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <div class="container content">
+    <div class="card p-4">
+      <h3 class="mb-4 text-center text-primary">🎫 Ticket Booking Requests</h3>
+
+      <!-- Booking Requests Table -->
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover text-center align-middle">
+          <thead>
+            <tr>
+              <th>Request ID</th>
+              <th>User Name</th>
+              <th>Train Name</th>
+              <th>Seats</th>
+              <th>Booking Date</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>B001</td>
+              <td>Ravi Sharma</td>
+              <td>Surat Express</td>
+              <td>2</td>
+              <td>2025-10-14</td>
+              <td><span class="badge bg-warning text-dark">Pending</span></td>
+              <td>
+                <button class="btn btn-sm btn-success" onclick="approve('B001')">Approve</button>
+                <button class="btn btn-sm btn-danger" onclick="cancel('B001')">Cancel</button>
+              </td>
+            </tr>
+            <tr>
+              <td>B002</td>
+              <td>Priya Singh</td>
+              <td>Rajdhani Express</td>
+              <td>1</td>
+              <td>2025-10-15</td>
+              <td><span class="badge bg-warning text-dark">Pending</span></td>
+              <td>
+                <button class="btn btn-sm btn-success" onclick="approve('B002')">Approve</button>
+                <button class="btn btn-sm btn-danger" onclick="cancel('B002')">Cancel</button>
+              </td>
+            </tr>
+            <tr>
+              <td>B003</td>
+              <td>Arjun Patel</td>
+              <td>Shatabdi Express</td>
+              <td>3</td>
+              <td>2025-10-16</td>
+              <td><span class="badge bg-success">Approved</span></td>
+              <td>
+                <button class="btn btn-sm btn-secondary" disabled>Approved</button>
+                <button class="btn btn-sm btn-danger" onclick="cancel('B003')">Cancel</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Footer -->
+  <footer>
+    <p>© 2025 Train Booking Admin | All Rights Reserved</p>
+  </footer>
+
+  <!-- ✅ Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ✅ JS Functions -->
+  <script>
+    function approve(id){
+      alert("Booking " + id + " approved successfully!");
+      // In real project, update status in database
+    }
+    function cancel(id){
+      alert("Booking " + id + " cancelled!");
+      // In real project, update status in database
+    }
+  </script>
+
+</body>
+</html>
